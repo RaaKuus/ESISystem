@@ -15,7 +15,7 @@ Ext.define("ESISystem.view.MatriculaPanel", {
         items: [
                 {xtype: 'fieldset', title: 'Dados Pessoais', defaultType: 'textfield', collapsible: true, defaults: {anchor: '99%'}, items: [
                   {xtype: 'container', layout: 'hbox', defaultType:'textfield', defaults:{anchor: '98%'}, items:[
-                    {xtype: 'numberfield', flex: 1, fieldLabel: "Nº de Matricula", name: 'nMatricula', allowBlank: false},
+                    {xtype: 'numberfield', flex: 1, fieldLabel: "Nº de Matricula", name: 'matricula', allowBlank: false},
                     {fieldLabel: "Nome do Aluno", flex: 1, name: 'nomeAluno', allowBlank: false, margin: '0 0 0 5'}]},
 
                   {fieldLabel: "Sexo", margin: '3 0 0 0', xtype:"radiogroup", cls: 'x-check-group-alt', items:[
@@ -29,12 +29,12 @@ Ext.define("ESISystem.view.MatriculaPanel", {
                   {fieldLabel: "Endereço", name: 'endereco', allowBlank: false},
 
                   {xtype:'container', layout: 'hbox', margin: '7 0 0 0', defaultType: 'textfield', defaults:{flex: 1, anchor:'98%'}, items:[
-                    {fieldLabel: "Nome do Pai", name:"nomeDoPai"},
-                    {fieldLabel: "Nº de Identidade do Pai", name:"nIdentidadePai", margin: '-4 0 0 5'}]},
+                    {fieldLabel: "Nome do Pai", name:"nomePai"},
+                    {fieldLabel: "Nº de Identidade do Pai", name:"identidadePai", margin: '-4 0 0 5'}]},
 
                   {xtype:'container', layout: 'hbox', margin: '7 0 0 0', defaultType: 'textfield', defaults:{flex: 1, anchor:'98%'}, items:[
-                    {fieldLabel: "Nome da Mãe", name:"nomeDaMãe"},
-                    {fieldLabel: "Nº de Identidade da Mãe", name:"nIdentidadeMãe", margin: '-4 0 0 5'}]},
+                    {fieldLabel: "Nome da Mãe", name:"nomeMae"},
+                    {fieldLabel: "Nº de Identidade da Mãe", name:"identidadeMae", margin: '-4 0 0 5'}]},
 
                   {fieldLabel: "Cor/Raça", margin: '3 0 0 0', xtype: "radiogroup",
                    items:[{boxLabel: "Branco", name:"cor", id:"cor-1", inputValue: 1},
@@ -101,8 +101,8 @@ Ext.define("ESISystem.view.MatriculaPanel", {
 
                   {fieldLabel: "Qual?", name: "qualRemedioControlado", allowBlank: true, xtype: "textfield"}]},
 
-                {xtype: 'fieldset', title: "Observações", defaultType: 'textfield', collapsible: true, items:[
-                  {fieldLabel: "Observações", name:"observacoes", allowBlank:true}]}],
+                {xtype: 'fieldset', title: "Observações", defaultType: 'textarea', collapsible: true, items:[
+                  {fieldLabel: "Observações", name:"observacoes", allowBlank:true, anchor: '99%'}]}],
 
               buttons: [
                 {
