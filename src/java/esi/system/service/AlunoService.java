@@ -3,16 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package esi.system.dao;
+package esi.system.service;
 
 import esi.system.model.Aluno;
 import java.util.List;
 
 /**
  *
- * @author Bruno
+ * @author RaaKuus
  */
-public interface AlunoDao extends AbstractDao<Aluno, String> {
-    void save(Aluno aluno);
+public interface AlunoService extends AbstractService<Aluno> {
     List<Aluno> findAlunos(String nome);
 }

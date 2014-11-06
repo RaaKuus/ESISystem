@@ -3,7 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/src/java/esi/system/dao/impl/ObservacoesDaoImpl.java</file>
+            <file>file:/Users/RaaKuus/Documents/ESISystem/src/java/esi/system/dao/impl/AbstractDaoImpl.java</file>
+            <file>file:/Users/RaaKuus/Documents/ESISystem/web/app/model/Aluno.js</file>
+            <file>file:/Users/RaaKuus/Documents/ESISystem/src/java/esi/system/dao/impl/AlunoDaoImpl.java</file>
+            <file>file:/Users/RaaKuus/Documents/ESISystem/web/app/view/MatriculaPanel.js</file>
+            <file>file:/Users/RaaKuus/Documents/ESISystem/web/WEB-INF/spring/xmlzão.xsd</file>
+            <file>file:/Users/RaaKuus/Documents/ESISystem/src/java/esi/system/model/Aluno.java</file>
+            <file>file:/Users/RaaKuus/Documents/ESISystem/web/WEB-INF/hbm/User.hbm.xml</file>
         </group>
     </open-files>
 </project-private>

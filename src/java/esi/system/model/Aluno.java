@@ -6,6 +6,7 @@
 package esi.system.model;
 
 import java.sql.Timestamp;
+import java.util.Objects;
 
 /**
  *
@@ -17,6 +18,7 @@ public class Aluno {
     private int sexo;
     private String naturalidade;
     private java.sql.Timestamp dataNascimento;
+    private String endereco;
     private String nomePai;
     private String identidadePai;
     private String nomeMae;
@@ -26,12 +28,13 @@ public class Aluno {
     public Aluno() {
     }
 
-    public Aluno(int matricula, String nome, int sexo, String naturalidade, Timestamp dataNascimento, String nomePai, String identidadePai, String nomeMae, String identidadeMae, int cor) {
+    public Aluno(int matricula, String nome, int sexo, String naturalidade, Timestamp dataNascimento, String endereco, String nomePai, String identidadePai, String nomeMae, String identidadeMae, int cor) {
         this.matricula = matricula;
         this.nome = nome;
         this.sexo = sexo;
         this.naturalidade = naturalidade;
         this.dataNascimento = dataNascimento;
+        this.endereco = endereco;
         this.nomePai = nomePai;
         this.identidadePai = identidadePai;
         this.nomeMae = nomeMae;
@@ -79,6 +82,14 @@ public class Aluno {
         this.dataNascimento = dataNascimento;
     }
 
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
     public String getNomePai() {
         return nomePai;
     }
@@ -118,4 +129,28 @@ public class Aluno {
     public void setCor(int cor) {
         this.cor = cor;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 79 * hash + Objects.hashCode(this.nome);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Aluno other = (Aluno) obj;
+        if (this.matricula != other.matricula) {
+            return false;
+        }
+        return Objects.equals(this.nome, other.nome);
+    }
+
+    
 }

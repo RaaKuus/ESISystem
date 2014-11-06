@@ -5,11 +5,13 @@ import esi.system.model.Aluno;
 import java.util.List;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author Bruno
  */
+@Repository
 public class AlunoDaoImpl extends AbstractDaoImpl<Aluno, String> implements AlunoDao {
 
     protected AlunoDaoImpl(){
@@ -22,7 +24,7 @@ public class AlunoDaoImpl extends AbstractDaoImpl<Aluno, String> implements Alun
     }
 
     @Override
-    public List<Aluno> find(String nome) {
+    public List<Aluno> findAlunos(String nome) {
         return this.findByCriteria(Restrictions.like("nome", nome, MatchMode.START));
     }
     
