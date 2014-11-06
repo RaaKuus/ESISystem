@@ -8,7 +8,7 @@
         <id name="matricula" type="int">
             <column name="matricula" />
         </id>
-        <property name="nome" type="stromg">
+        <property name="nome" type="string">
             <column name="aluno" not-null="false" />
         </property>
         
@@ -39,14 +39,11 @@
         <property name="nomeMae" type="string">
             <column name="nomeMae" not-null="false" />
         </property>
-        <property name="identidadeMae" type="String">
+        <property name="identidadeMae" type="string">
             <column name="identidadeMae" not-null="false" />
         </property>
         <property name="cor" type="int">
             <column name="cor" not-null="false" />
-        </property>
-        <property name="" type="">
-            <column name="" not-null="false" />
         </property>
     </class>
 </hibernate-mapping>

@@ -48,6 +48,4 @@ public class AlunoServiceImpl implements AlunoService{
         if(aluno != null)
             alunoDao.delete(aluno);
     }
-    
-    
 }
