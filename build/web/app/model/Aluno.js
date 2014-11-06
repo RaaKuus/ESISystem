@@ -12,7 +12,8 @@ Ext.define("ESISystem.model.Aluno", {
         {name: 'identidadePai', type: 'string'},
         {name: 'nomeMae', type: 'string'},
         {name: 'identidadeMae', type: 'string'},
-        {name: 'cor', type: 'int'}
+        {name: 'cor', type: 'int'},
+        {name: 'dataMatricula'}
     ]
 });
 

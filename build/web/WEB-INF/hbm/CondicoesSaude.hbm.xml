@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="esi.system.model.CondicoesSaude"
+           table="condicoes_saude">
+        <id name="matricula" type="int">
+            <column name="alunos_matricula"/>
+        </id>
+        <property name="vacinas" type="int">
+            <column name="vacinas" not-null="false"/>
+        </property>
+        <property name="alergica" type="int">
+            <column name="alergica" not-null="false"/>
+        </property>
+        <property name="alergias" type="string">
+            <column name="alergias" not-null="false"/>
+        </property>
+        <property name="remedioControlado" type="int">
+            <column name="remedioControlado" not-null="false"/>
+        </property>
+        <property name="remedioIndicado" type="string">
+            <column name="remedio" not-null="false"/>
+        </property>
+        <property name="febre" type="int">
+            <column name="febre" not-null="false"/>
+        </property>
+        <property name="remedioFebre" type="string">
+            <column name="remediofebre" not-null="false"/>
+        </property>
+    </class>
+</hibernate-mapping>

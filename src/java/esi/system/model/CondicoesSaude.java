@@ -15,14 +15,14 @@ public class CondicoesSaude {
     private int alergica;
     private String alergias;
     private int remedioControlado;
-    private int remedioIndicado;
+    private String remedioIndicado;
     private int febre;
     private String remedioFebre;
 
     public CondicoesSaude() {
     }
 
-    public CondicoesSaude(int matricula, int vacinas, int alergica, String alergias, int remedioControlado, int remedioIndicado, int febre, String remedioFebre) {
+    public CondicoesSaude(int matricula, int vacinas, int alergica, String alergias, int remedioControlado, String remedioIndicado, int febre, String remedioFebre) {
         this.matricula = matricula;
         this.vacinas = vacinas;
         this.alergica = alergica;
@@ -73,11 +73,11 @@ public class CondicoesSaude {
         this.remedioControlado = remedioControlado;
     }
 
-    public int getRemedioIndicado() {
+    public String getRemedioIndicado() {
         return remedioIndicado;
     }
 
-    public void setRemedioIndicado(int remedioIndicado) {
+    public void setRemedioIndicado(String remedioIndicado) {
         this.remedioIndicado = remedioIndicado;
     }
 
@@ -96,6 +96,24 @@ public class CondicoesSaude {
     public void setRemedioFebre(String remedioFebre) {
         this.remedioFebre = remedioFebre;
     }
-    
-    
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 23 * hash + this.matricula;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final CondicoesSaude other = (CondicoesSaude) obj;
+        return this.matricula == other.matricula;
+    }
+
 }

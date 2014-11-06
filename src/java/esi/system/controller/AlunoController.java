@@ -28,7 +28,7 @@ public class AlunoController {
     @Autowired
     private AlunoService alunoService;
     
-    @RequestMapping(value = "/aluno")
+    @RequestMapping(value = "aluno")
     public String showUserForm(Model model) throws ParseException{
         System.out.println(model);
         Aluno a = new Aluno();
@@ -40,6 +40,6 @@ public class AlunoController {
        
         a.setDataNascimento(new Timestamp(date.getTime()));
         alunoService.save(a);
-        return "oi";
+        return "index.html";
     }
 }

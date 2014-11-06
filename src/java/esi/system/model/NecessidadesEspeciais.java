@@ -13,6 +13,7 @@ public class NecessidadesEspeciais {
     private int matricula;
     private int visual;
     private int auditiva;
+    private int fisica;
     private int mental;
     private int multipla;
     private int altasHabilidades;
@@ -22,10 +23,11 @@ public class NecessidadesEspeciais {
     public NecessidadesEspeciais() {
     }
 
-    public NecessidadesEspeciais(int matricula, int visual, int auditiva, int mental, int multipla, int altasHabilidades, int condutasTipicas, int outra) {
+    public NecessidadesEspeciais(int matricula, int visual, int auditiva, int fisica, int mental, int multipla, int altasHabilidades, int condutasTipicas, int outra) {
         this.matricula = matricula;
         this.visual = visual;
         this.auditiva = auditiva;
+        this.fisica = fisica;
         this.mental = mental;
         this.multipla = multipla;
         this.altasHabilidades = altasHabilidades;
@@ -55,6 +57,14 @@ public class NecessidadesEspeciais {
 
     public void setAuditiva(int auditiva) {
         this.auditiva = auditiva;
+    }
+
+    public int getFisica() {
+        return fisica;
+    }
+
+    public void setFisica(int fisica) {
+        this.fisica = fisica;
     }
 
     public int getMental() {
@@ -96,5 +106,24 @@ public class NecessidadesEspeciais {
     public void setOutra(int outra) {
         this.outra = outra;
     }
-    
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 11 * hash + this.matricula;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final NecessidadesEspeciais other = (NecessidadesEspeciais) obj;
+        return this.matricula == other.matricula;
+    }
+
 }
