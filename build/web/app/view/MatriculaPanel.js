@@ -16,7 +16,7 @@ Ext.define("ESISystem.view.MatriculaPanel", {
                 {xtype: 'fieldset', title: 'Dados Pessoais', defaultType: 'textfield', collapsible: true, defaults: {anchor: '99%'}, items: [
                   {xtype: 'container', layout: 'hbox', defaultType:'textfield', defaults:{anchor: '98%'}, items:[
                     {xtype: 'numberfield', flex: 1, fieldLabel: "Nº de Matricula", name: 'matricula', allowBlank: false},
-                    {fieldLabel: "Nome do Aluno", flex: 1, name: 'nomeAluno', allowBlank: false, margin: '0 0 0 5'}]},
+                    {fieldLabel: "Nome do Aluno", flex: 1, name: 'nome', allowBlank: false, margin: '0 0 0 5'}]},
 
                   {fieldLabel: "Sexo", margin: '3 0 0 0', xtype:"radiogroup", cls: 'x-check-group-alt', items:[
                     {boxLabel: 'Masculino', name:"sexo", inputValue: 1, checked: true},

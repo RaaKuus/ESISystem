@@ -14,6 +14,7 @@ Ext.define("ESISystem.model.MatriculaModel", {
         {name:"nomeMae",                type:"string"},
         {name:"identidadeMae",          type:"string"},
         {name:"cor",                    type:"int"},
+        
         {name:"visual",                 type:"int"},
         {name:"auditiva",               type:"int"},
         {name:"fisica",                 type:"int"},
@@ -22,11 +23,13 @@ Ext.define("ESISystem.model.MatriculaModel", {
         {name:"altasHabilidades",       type:"int"},
         {name:"condutasTipicas",        type:"int"},
         {name:"outra",                  type:"int"},
+        
         {name:"vacinas",                type:"int"},
         {name:"alergica",               type:"int"},
         {name:"alergiasIndicadas",      type:"string"},
         {name:"remedioControlado",      type:"int"},
         {name:"qualRemedioControlado",  type:"string"},
+        
         {name:"observacoes",            type:"string"}
     ]
     
