@@ -3,6 +3,7 @@ package esi.system.service.impl;
 import esi.system.dao.CondicoesSaudeDao;
 import esi.system.model.CondicoesSaude;
 import esi.system.service.CondicoesSaudeService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -35,6 +36,16 @@ public class CondicoesSaudeServiceImpl implements CondicoesSaudeService {
         CondicoesSaude condicoesSaude = condicoesSaudeDao.findById(id);
         if(condicoesSaude != null)
             condicoesSaudeDao.delete(condicoesSaude);
+    }
+
+    @Override
+    public int getTotal() {
+        return condicoesSaudeDao.getTotal();
+    }
+
+    @Override
+    public List<CondicoesSaude> getListView(int start, int limit) {
+        return condicoesSaudeDao.getViewList(start, limit);
     }
     
 }

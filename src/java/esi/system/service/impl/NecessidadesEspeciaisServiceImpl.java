@@ -3,6 +3,7 @@ package esi.system.service.impl;
 import esi.system.dao.NecessidadesEspeciaisDao;
 import esi.system.model.NecessidadesEspeciais;
 import esi.system.service.NecessidadesEspeciaisService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,5 +35,15 @@ public class NecessidadesEspeciaisServiceImpl implements NecessidadesEspeciaisSe
         NecessidadesEspeciais necessidadesEspeciais = necessidadesEspeciaisDao.findById(id);
         if(necessidadesEspeciais != null)
             necessidadesEspeciaisDao.delete(necessidadesEspeciais);
+    }
+
+    @Override
+    public int getTotal() {
+        return necessidadesEspeciaisDao.getTotal();
+    }
+
+    @Override
+    public List<NecessidadesEspeciais> getListView(int start, int limit) {
+        return necessidadesEspeciaisDao.getViewList(start, limit);
     }
 }

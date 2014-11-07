@@ -4,4 +4,4 @@ Ext.define("ESISystem.store.EstadoStore", {
 	alias: 'store.estados',
 	proxy: {type: 'ajax', url: "resources/estados.json", reader: {type: 'json', rootProperty: 'estados'}},
 	autoLoad: true
-})
+});

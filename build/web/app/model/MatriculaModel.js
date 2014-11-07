@@ -1,36 +1,38 @@
 Ext.define("ESISystem.model.MatriculaModel", {
     extend: "Ext.data.Model",
     xtype: "matriculamodel",
-    
-    fields:[
-        {name:"matricula",              type: "int"},
-        {name:"nomeAluno",              type: "string"},
-        {name:"sexo",                   type:"int"},
-        {name:"dataNascimento",         type:"string"},
-        {name:"naturalidade",           type:"string"},
-        {name:"endereco",               type:"string"},
-        {name:"nomePai",                type: "string"},
-        {name:"identidadePai",          type:"string"},
-        {name:"nomeMae",                type:"string"},
-        {name:"identidadeMae",          type:"string"},
-        {name:"cor",                    type:"int"},
+    fields: [
+        'matricula',
+        'nome',
+        'sexo',
+        'dataNascimento',
+        'naturalidade',
+        'endereco',
+        'nomePai',
+        'identidadePai',
+        'nomeMae',
+        'identidadeMae',
+        'cor',
+        'dataMatricula',
         
-        {name:"visual",                 type:"int"},
-        {name:"auditiva",               type:"int"},
-        {name:"fisica",                 type:"int"},
-        {name:"mental",                 type:"int"},
-        {name:"multipla",               type:"int"},
-        {name:"altasHabilidades",       type:"int"},
-        {name:"condutasTipicas",        type:"int"},
-        {name:"outra",                  type:"int"},
+        'visual',
+        'auditiva',
+        'fisica',
+        'mental',
+        'multipla',
+        'altasHabilidades',
+        'condutasTipicas',
+        'outra',
         
-        {name:"vacinas",                type:"int"},
-        {name:"alergica",               type:"int"},
-        {name:"alergiasIndicadas",      type:"string"},
-        {name:"remedioControlado",      type:"int"},
-        {name:"qualRemedioControlado",  type:"string"},
+        'vacinas',
+        'alergica',
+        'alergias',
+        'remedioControlado',
+        'remedioIndicado',
+        'febre',
+        'remedioFebre',
         
-        {name:"observacoes",            type:"string"}
+        'observacoes'
     ]
     
 });

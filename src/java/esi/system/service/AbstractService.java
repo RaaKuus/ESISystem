@@ -5,6 +5,8 @@
  */
 package esi.system.service;
 
+import java.util.List;
+
 /**
  *
  * @author RaaKuus
@@ -14,5 +16,6 @@ public interface AbstractService<E> {
     E findById(String id);
     void save(E e);
     void delete(String id);
-    
+    int getTotal();
+    List<E> getListView(int start, int limit);
 }

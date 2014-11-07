@@ -24,11 +24,12 @@ public class Aluno {
     private String nomeMae;
     private String identidadeMae;
     private int cor;
+    private java.sql.Timestamp dataMatricula;
 
     public Aluno() {
     }
 
-    public Aluno(int matricula, String nome, int sexo, String naturalidade, Timestamp dataNascimento, String endereco, String nomePai, String identidadePai, String nomeMae, String identidadeMae, int cor) {
+    public Aluno(int matricula, String nome, int sexo, String naturalidade, Timestamp dataNascimento, String endereco, String nomePai, String identidadePai, String nomeMae, String identidadeMae, int cor, Timestamp dataMatricula) {
         this.matricula = matricula;
         this.nome = nome;
         this.sexo = sexo;
@@ -40,6 +41,7 @@ public class Aluno {
         this.nomeMae = nomeMae;
         this.identidadeMae = identidadeMae;
         this.cor = cor;
+        this.dataMatricula = dataMatricula;
     }
 
     public int getMatricula() {
@@ -130,6 +132,14 @@ public class Aluno {
         this.cor = cor;
     }
 
+    public Timestamp getDataMatricula() {
+        return dataMatricula;
+    }
+
+    public void setDataMatricula(Timestamp dataMatricula) {
+        this.dataMatricula = dataMatricula;
+    }
+ 
     @Override
     public int hashCode() {
         int hash = 7;

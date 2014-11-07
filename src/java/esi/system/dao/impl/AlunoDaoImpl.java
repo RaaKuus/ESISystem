@@ -5,6 +5,7 @@ import esi.system.model.Aluno;
 import java.util.List;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -26,6 +27,11 @@ public class AlunoDaoImpl extends AbstractDaoImpl<Aluno, String> implements Alun
     @Override
     public List<Aluno> findAlunos(String nome) {
         return this.findByCriteria(Restrictions.like("nome", nome, MatchMode.START));
+    }
+
+    @Override
+    public int getTotal() {
+        return DataAccessUtils.intResult(this.getTemplate().find("Select COUNT(*) FROM alunos"));
     }
     
 }

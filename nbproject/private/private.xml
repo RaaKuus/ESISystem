@@ -3,16 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/web/WEB-INF/spring/hibernateContext.xml</file>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/web/WEB-INF/jsp/index.jsp</file>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/web/index.html</file>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/web/WEB-INF/hbm/Observacoes.hbm.xml</file>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/web/WEB-INF/hbm/CondicoesSaude.hbm.xml</file>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/web/WEB-INF/spring/applicationContext.xml</file>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/web/app/view/MatriculaPanel.js</file>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/src/java/esi/system/controller/MatriculaController.java</file>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/src/java/esi/system/controller/IndexController.java</file>
+            <file>file:/Users/RaaKuus/Documents/ESISystem/web/app/store/MatriculaStore.js</file>
+            <file>file:/Users/RaaKuus/Documents/ESISystem/src/java/esi/system/model/Matricula.java</file>
+            <file>file:/Users/RaaKuus/Documents/ESISystem/src/java/esi/system/controller/MatriculaController.java</file>
         </group>
     </open-files>
 </project-private>

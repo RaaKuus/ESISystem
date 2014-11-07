@@ -8,6 +8,7 @@ package esi.system.service.impl;
 import esi.system.dao.AlunoDao;
 import esi.system.model.Aluno;
 import esi.system.service.AlunoService;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -48,4 +49,15 @@ public class AlunoServiceImpl implements AlunoService{
         if(aluno != null)
             alunoDao.delete(aluno);
     }
+
+    @Override
+    public int getTotal() {
+        return alunoDao.getTotal();
+    }
+
+    @Override
+    public List<Aluno> getListView(int start, int limit) {
+        return alunoDao.getViewList(start, limit);
+    }
+
 }

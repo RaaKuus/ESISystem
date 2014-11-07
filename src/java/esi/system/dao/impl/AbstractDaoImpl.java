@@ -7,7 +7,9 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate4.HibernateTemplate;
 
 /**
  *
@@ -18,7 +20,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 public abstract class AbstractDaoImpl<E, I extends Serializable> implements AbstractDao<E,I>{
 
     private final Class<E> entityClass;
-
+    private HibernateTemplate template;
+    
     protected AbstractDaoImpl(Class<E> entityClass) {
         this.entityClass = entityClass;
     }
@@ -28,6 +31,21 @@ public abstract class AbstractDaoImpl<E, I extends Serializable> implements Abst
     
     private Session getCurrentSession(){
         return sessionFactory.getCurrentSession();
+    }
+    
+    protected HibernateTemplate getTemplate(){
+        if(template != null)
+            return template;
+        else{
+            this.template = new HibernateTemplate(sessionFactory);
+            return this.template;
+        }
+    }
+    
+    @Override
+    public List<E> getViewList(int start, int limit){
+        DetachedCriteria criteria = DetachedCriteria.forClass(entityClass);
+        return (List<E>) this.getTemplate().findByCriteria(criteria, start, limit);
     }
     
     @Override
@@ -50,5 +68,6 @@ public abstract class AbstractDaoImpl<E, I extends Serializable> implements Abst
         Criteria criteria = getCurrentSession().createCriteria(entityClass);
         criteria.add(criterion);
         return criteria.list();
+        
     }
 }

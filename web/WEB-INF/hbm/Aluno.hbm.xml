@@ -45,5 +45,8 @@
         <property name="cor" type="int">
             <column name="cor" not-null="false" />
         </property>
+        <property name="dataMatricula" type="java.sql.Timestamp">
+            <column name="dataMatricula" not-null="false" />
+        </property>
     </class>
 </hibernate-mapping>

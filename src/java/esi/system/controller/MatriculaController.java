@@ -7,23 +7,33 @@ package esi.system.controller;
 
 import esi.system.model.Aluno;
 import esi.system.model.CondicoesSaude;
+import esi.system.model.Matricula;
+import esi.system.model.MatriculaWrapper;
 import esi.system.model.NecessidadesEspeciais;
 import esi.system.model.Observacoes;
 import esi.system.service.AlunoService;
 import esi.system.service.CondicoesSaudeService;
 import esi.system.service.NecessidadesEspeciaisService;
 import esi.system.service.ObservacoesService;
+import esi.system.utils.MatriculaBuilder;
+import esi.system.utils.ResultJS;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  *
@@ -44,7 +54,7 @@ public class MatriculaController {
     @Autowired
     private ObservacoesService observacoesService;
     
-    @RequestMapping(value = "matricula")
+    @RequestMapping(value = "matricula.action")
     public String form(Model model){
         System.out.println("Matricula acessada");
         
@@ -61,14 +71,21 @@ public class MatriculaController {
         } catch (ParseException ex) {
             Logger.getLogger(MatriculaController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        aluno.setDataNascimento(new Timestamp(date.getTime()));
+        if(date != null)
+            aluno.setDataNascimento(new Timestamp(date.getTime()));
         aluno.setEndereco("Qd 01 lote 27 Parque Nova Friburgo A");
         aluno.setNomePai("Raimundo");
         aluno.setIdentidadePai("000.000.000-00");
         aluno.setNomeMae("Jocelina");
         aluno.setIdentidadeMae("000.000.000-00");
         aluno.setCor(2);
+        try{
+            date = dateFormat.parse("06/11/2014");
+        }catch(ParseException ex){
+            
+        }
+        if(date != null)
+            aluno.setDataMatricula(new Timestamp(date.getTime()));
         
         alunoService.save(aluno);
         
@@ -101,4 +118,87 @@ public class MatriculaController {
         
         return "../matricula.html";
     }
+    
+    @RequestMapping(value="/matricula/view.action")
+    public @ResponseBody Map<String, ? extends Object> view(@RequestParam int start, @RequestParam int limit) throws Exception {
+        ResultJS<Matricula> resultMat = new ResultJS<>();
+        
+        try{
+            List<Matricula> matriculas = new ArrayList<>();
+            
+            List<Aluno> alunos = alunoService.getListView(start, limit);
+            List<NecessidadesEspeciais> necessidadesEspeciais = necessidadesEspeciaisService.getListView(start, limit);
+            List<CondicoesSaude> condicoesSaude = condicoesSaudeService.getListView(start, limit);
+            List<Observacoes> observacoes = observacoesService.getListView(start, limit);
+            
+            for(int i = 0; i < alunos.size(); i++){
+               MatriculaBuilder matriculaBuilder = new MatriculaBuilder();
+               matriculaBuilder.buildAluno(alunos.get(i))
+                               .buildCondicoesSaude(condicoesSaude.get(i))
+                               .buildNecessidadesEspeciais(necessidadesEspeciais.get(i))
+                               .buildObservacoes(observacoes.get(i));
+               matriculas.add(matriculaBuilder.build());
+            }
+            
+            int total = alunoService.getTotal();
+            
+            return resultMat.mapOk(matriculas, total);
+        }catch(Exception e){
+            return ResultJS.mapError("Erro ao pesquisar matriculas no banco de dados.");
+        }
+    }
+    
+    @RequestMapping(value="/matricula/insert.action")
+    public @ResponseBody Map<String, ? extends Object> create(Model data) throws Exception {
+        System.out.println("Recebi request de insert!");
+        System.out.println(data);
+        return ResultJS.mapError("Deu erro nesse caraio");
+        /*System.out.println(data.getData().toString());
+        ResultJS<Matricula> result = new ResultJS<>();
+        try{
+            List<Matricula> matriculas = new ArrayList<>();
+            Aluno aluno = data.getData().buildAluno();
+            NecessidadesEspeciais necessidadesEspeciais = data.getData().buildNecessidadesEspeciais();
+            CondicoesSaude condicoesSaude = data.getData().buildCondicoesSaude();
+            Observacoes observacoes = data.getData().buildObservacoes();
+            
+            this.alunoService.save(aluno);
+            this.necessidadesEspeciaisService.save(necessidadesEspeciais);
+            this.condicoesSaudeService.save(condicoesSaude);
+            this.observacoesService.save(observacoes);
+            
+            
+            MatriculaBuilder matriculaBuilder = new MatriculaBuilder();
+            matriculaBuilder.buildAluno(aluno)
+                            .buildCondicoesSaude(condicoesSaude)
+                            .buildNecessidadesEspeciais(necessidadesEspeciais)
+                            .buildObservacoes(observacoes);
+            matriculas.add(matriculaBuilder.build());
+            return result.mapOk(matriculas);
+        }catch(Exception e){
+            return ResultJS.mapError("Erro ao salvar matricula no banco de dados.");
+        }*/
+    }
+    
+    @RequestMapping(value="/matricula/delete.action")
+    public @ResponseBody Map<String, ? extends Object> delete(@RequestBody MatriculaWrapper data) throws Exception {
+        try{
+            Aluno aluno = data.getData().buildAluno();
+            NecessidadesEspeciais necessidadesEspeciais = data.getData().buildNecessidadesEspeciais();
+            CondicoesSaude condicoesSaude = data.getData().buildCondicoesSaude();
+            Observacoes observacoes = data.getData().buildObservacoes();
+            
+            alunoService.delete(String.valueOf(aluno.getMatricula()));
+            necessidadesEspeciaisService.delete(String.valueOf(necessidadesEspeciais.getMatricula()));
+            condicoesSaudeService.delete(String.valueOf(condicoesSaude.getMatricula()));
+            observacoesService.delete(String.valueOf(observacoes.getMatricula()));
+            
+            return ResultJS.mapSuccessOnly();
+        }catch(Exception e){
+            return ResultJS.mapError("Erro ao excluir dados do banco de dados.");
+        }
+    }
+    
+    
+    
 }
