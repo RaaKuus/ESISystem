@@ -9,8 +9,8 @@ Ext.define("ESISystem.store.MatriculaStore", {
         type: 'ajax',
         api: {
             read : 'matricula/view.action',
-            create : 'matricula/insert.action',
-            update: 'matricula/insert.action',
+            create : 'matricula/create.action',
+            update: 'matricula/create.action',
             destroy: 'matricula/delete.action'
         },
         reader: {
@@ -20,7 +20,7 @@ Ext.define("ESISystem.store.MatriculaStore", {
         },
         writer: {
             type: 'json',
-            writeAllFields: true,
+            writeAllFields: false,
             encode: false,
             rootProperty: 'data'
         },

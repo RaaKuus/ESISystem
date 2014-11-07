@@ -6,18 +6,23 @@
 package esi.system.model;
 
 import java.sql.Timestamp;
+import org.codehaus.jackson.annotate.JsonAutoDetect;
 
 /**
  *
  * @author RaaKuus
  */
+@JsonAutoDetect
 public class Matricula {
+    //id zuado do extjs tem que tirar isso...
+    private String Id;
+    
     
     private int matricula;
     private String nome;
     private int sexo;
-    private String naturalidade;
     private String dataNascimento;
+    private String naturalidade;
     private String endereco;
     private String nomePai;
     private String identidadePai;
@@ -25,14 +30,6 @@ public class Matricula {
     private String identidadeMae;
     private int cor;
     private String dataMatricula;
-    
-    private int vacinas;
-    private int alergica;
-    private String alergias;
-    private int remedioControlado;
-    private String remedioIndicado;
-    private int febre;
-    private String remedioFebre;
     
     private int visual;
     private int auditiva;
@@ -43,17 +40,26 @@ public class Matricula {
     private int condutasTipicas;
     private int outra;
     
+    private int vacinas;
+    private int alergica;
+    private String alergias;
+    private int remedioControlado;
+    private String remedioIndicado;
+    private int febre;
+    private String remedioFebre;
+    
     private String observacoes;
 
     public Matricula() {
     }
 
-    public Matricula(int matricula, String nome, int sexo, String naturalidade, String dataNascimento, String endereco, String nomePai, String identidadePai, String nomeMae, String identidadeMae, int cor, String dataMatricula, int vacinas, int alergica, String alergias, int remedioControlado, String remedioIndicado, int febre, String remedioFebre, int visual, int auditiva, int fisica, int mental, int multipla, int altasHabilidades, int condutasTipicas, int outra, String observacoes) {
+    public Matricula(String Id, int matricula, String nome, int sexo, String dataNascimento, String naturalidade, String endereco, String nomePai, String identidadePai, String nomeMae, String identidadeMae, int cor, String dataMatricula, int visual, int auditiva, int fisica, int mental, int multipla, int altasHabilidades, int condutasTipicas, int outra, int vacinas, int alergica, String alergias, int remedioControlado, String remedioIndicado, int febre, String remedioFebre, String observacoes) {
+        this.Id = Id;
         this.matricula = matricula;
         this.nome = nome;
         this.sexo = sexo;
-        this.naturalidade = naturalidade;
         this.dataNascimento = dataNascimento;
+        this.naturalidade = naturalidade;
         this.endereco = endereco;
         this.nomePai = nomePai;
         this.identidadePai = identidadePai;
@@ -61,13 +67,6 @@ public class Matricula {
         this.identidadeMae = identidadeMae;
         this.cor = cor;
         this.dataMatricula = dataMatricula;
-        this.vacinas = vacinas;
-        this.alergica = alergica;
-        this.alergias = alergias;
-        this.remedioControlado = remedioControlado;
-        this.remedioIndicado = remedioIndicado;
-        this.febre = febre;
-        this.remedioFebre = remedioFebre;
         this.visual = visual;
         this.auditiva = auditiva;
         this.fisica = fisica;
@@ -76,7 +75,22 @@ public class Matricula {
         this.altasHabilidades = altasHabilidades;
         this.condutasTipicas = condutasTipicas;
         this.outra = outra;
+        this.vacinas = vacinas;
+        this.alergica = alergica;
+        this.alergias = alergias;
+        this.remedioControlado = remedioControlado;
+        this.remedioIndicado = remedioIndicado;
+        this.febre = febre;
+        this.remedioFebre = remedioFebre;
         this.observacoes = observacoes;
+    }
+
+    public String getId() {
+        return Id;
+    }
+
+    public void setId(String Id) {
+        this.Id = Id;
     }
 
     public int getMatricula() {
@@ -103,20 +117,20 @@ public class Matricula {
         this.sexo = sexo;
     }
 
-    public String getNaturalidade() {
-        return naturalidade;
-    }
-
-    public void setNaturalidade(String naturalidade) {
-        this.naturalidade = naturalidade;
-    }
-
     public String getDataNascimento() {
         return dataNascimento;
     }
 
     public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
+    }
+
+    public String getNaturalidade() {
+        return naturalidade;
+    }
+
+    public void setNaturalidade(String naturalidade) {
+        this.naturalidade = naturalidade;
     }
 
     public String getEndereco() {
@@ -173,62 +187,6 @@ public class Matricula {
 
     public void setDataMatricula(String dataMatricula) {
         this.dataMatricula = dataMatricula;
-    }
-
-    public int getVacinas() {
-        return vacinas;
-    }
-
-    public void setVacinas(int vacinas) {
-        this.vacinas = vacinas;
-    }
-
-    public int getAlergica() {
-        return alergica;
-    }
-
-    public void setAlergica(int alergica) {
-        this.alergica = alergica;
-    }
-
-    public String getAlergias() {
-        return alergias;
-    }
-
-    public void setAlergias(String alergias) {
-        this.alergias = alergias;
-    }
-
-    public int getRemedioControlado() {
-        return remedioControlado;
-    }
-
-    public void setRemedioControlado(int remedioControlado) {
-        this.remedioControlado = remedioControlado;
-    }
-
-    public String getRemedioIndicado() {
-        return remedioIndicado;
-    }
-
-    public void setRemedioIndicado(String remedioIndicado) {
-        this.remedioIndicado = remedioIndicado;
-    }
-
-    public int getFebre() {
-        return febre;
-    }
-
-    public void setFebre(int febre) {
-        this.febre = febre;
-    }
-
-    public String getRemedioFebre() {
-        return remedioFebre;
-    }
-
-    public void setRemedioFebre(String remedioFebre) {
-        this.remedioFebre = remedioFebre;
     }
 
     public int getVisual() {
@@ -295,6 +253,62 @@ public class Matricula {
         this.outra = outra;
     }
 
+    public int getVacinas() {
+        return vacinas;
+    }
+
+    public void setVacinas(int vacinas) {
+        this.vacinas = vacinas;
+    }
+
+    public int getAlergica() {
+        return alergica;
+    }
+
+    public void setAlergica(int alergica) {
+        this.alergica = alergica;
+    }
+
+    public String getAlergias() {
+        return alergias;
+    }
+
+    public void setAlergias(String alergias) {
+        this.alergias = alergias;
+    }
+
+    public int getRemedioControlado() {
+        return remedioControlado;
+    }
+
+    public void setRemedioControlado(int remedioControlado) {
+        this.remedioControlado = remedioControlado;
+    }
+
+    public String getRemedioIndicado() {
+        return remedioIndicado;
+    }
+
+    public void setRemedioIndicado(String remedioIndicado) {
+        this.remedioIndicado = remedioIndicado;
+    }
+
+    public int getFebre() {
+        return febre;
+    }
+
+    public void setFebre(int febre) {
+        this.febre = febre;
+    }
+
+    public String getRemedioFebre() {
+        return remedioFebre;
+    }
+
+    public void setRemedioFebre(String remedioFebre) {
+        this.remedioFebre = remedioFebre;
+    }
+
     public String getObservacoes() {
         return observacoes;
     }
@@ -302,6 +316,7 @@ public class Matricula {
     public void setObservacoes(String observacoes) {
         this.observacoes = observacoes;
     }
+
     
     
     

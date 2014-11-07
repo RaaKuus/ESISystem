@@ -12,6 +12,13 @@ package esi.system.model;
 public class MatriculaWrapper {
     private Matricula data;
 
+    public MatriculaWrapper() {
+    }
+
+    public MatriculaWrapper(Matricula matricula) {
+        this.data = matricula;
+    }
+
     public Matricula getData() {
         return data;
     }

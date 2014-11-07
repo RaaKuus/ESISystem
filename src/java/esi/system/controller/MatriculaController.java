@@ -17,6 +17,8 @@ import esi.system.service.NecessidadesEspeciaisService;
 import esi.system.service.ObservacoesService;
 import esi.system.utils.MatriculaBuilder;
 import esi.system.utils.ResultJS;
+import java.io.StringReader;
+import java.io.StringWriter;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -27,11 +29,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -148,14 +154,26 @@ public class MatriculaController {
         }
     }
     
-    @RequestMapping(value="/matricula/insert.action")
-    public @ResponseBody Map<String, ? extends Object> create(Model data) throws Exception {
+    @RequestMapping(value="/matricula/create.action", method=RequestMethod.POST)
+    @ResponseBody
+    public Map<String, ? extends Object> create(@RequestBody MatriculaWrapper data, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        ObjectMapper objectMapper = new ObjectMapper();
+        //StringWriter stringWriter = new StringWriter();
+        //stringWriter.append(data);
+        //objectMapper.writeValue(stringWriter, new MatriculaWrapper(new Matricula()));
+        
+        //MatriculaWrapper matriculaWrapper = objectMapper.readValue(new StringReader(data), MatriculaWrapper.class);
+        
+        //System.out.println("Data deveria ser assim: "+stringWriter.toString());
+        
+        //System.out.println(matriculaWrapper.toString());
+        
         System.out.println("Recebi request de insert!");
-        System.out.println(data);
-        return ResultJS.mapError("Deu erro nesse caraio");
-        /*System.out.println(data.getData().toString());
+        //System.out.println(data);
+        //System.out.println(data.getData().toString());
         ResultJS<Matricula> result = new ResultJS<>();
-        try{
+        
+        /*try{
             List<Matricula> matriculas = new ArrayList<>();
             Aluno aluno = data.getData().buildAluno();
             NecessidadesEspeciais necessidadesEspeciais = data.getData().buildNecessidadesEspeciais();
@@ -178,6 +196,7 @@ public class MatriculaController {
         }catch(Exception e){
             return ResultJS.mapError("Erro ao salvar matricula no banco de dados.");
         }*/
+        return ResultJS.mapError("Testando calmae");
     }
     
     @RequestMapping(value="/matricula/delete.action")
