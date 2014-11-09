@@ -47,14 +47,14 @@ public class MatriculaBuilder {
         matricula.setNome(this.aluno.getNome());
         matricula.setSexo(this.aluno.getSexo());
         matricula.setNaturalidade(this.aluno.getNaturalidade());
-        matricula.setDataNascimento(null);
+        matricula.setDataNascimento(this.aluno.getDataNascimento().toString());
         matricula.setEndereco(this.aluno.getEndereco());
         matricula.setNomePai(this.aluno.getNomePai());
         matricula.setIdentidadePai(this.aluno.getNomePai());
         matricula.setNomeMae(this.aluno.getNomeMae());
         matricula.setIdentidadeMae(this.aluno.getNomeMae());
         matricula.setCor(this.aluno.getCor());
-        matricula.setDataMatricula(null);
+        matricula.setDataMatricula(this.aluno.getDataMatricula().toString());
         
         matricula.setVacinas(this.condicoesSaude.getVacinas());
         matricula.setAlergica(this.condicoesSaude.getAlergica());

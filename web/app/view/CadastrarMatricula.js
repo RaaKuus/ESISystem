@@ -16,7 +16,7 @@ Ext.define("ESISystem.view.CadastrarMatricula", {
                                 {boxLabel: 'Masculino', name: "sexo", inputValue: 1, checked: true},
                                 {boxLabel: 'Feminino', name: "sexo", inputValue: 2}]},
                         {xtype: 'container', layout: 'hbox', defaultType: 'textfield', defaults: {flex: 1, anchor: '98%'}, items: [
-                                {fieldLabel: "Data de Nascimento", nome: 'dataNascimento', xtype: 'datefield', allowBlank: false},
+                                {fieldLabel: "Data de Nascimento", name: 'dataNascimento', xtype: 'datefield', allowBlank: false},
                                 {fieldLabel: "Naturalidade", name: 'naturalidade', allowBlank: false, margin: '9 0 0 5'}]},
                         {fieldLabel: "Endereço", name: 'endereco', allowBlank: false},
                         {xtype: 'container', layout: 'hbox', margin: '7 0 0 0', defaultType: 'textfield', defaults: {flex: 1, anchor: '98%'}, items: [
@@ -30,7 +30,7 @@ Ext.define("ESISystem.view.CadastrarMatricula", {
                                 {boxLabel: "Pardo", name: "cor", id: "cor-2", inputValue: 2, checked: true},
                                 {boxLabel: "Amarela", name: "cor", id: "cor-3", inputValue: 3},
                                 {boxLabel: "Indígena", name: "cor", id: "cor-4", inputValue: 4}]},
-                        {fieldLabel: "Data de Matricula", name: 'dataMatricula', allowBlank: false, xtype: 'datefield'}
+                        {fieldLabel: "Data de Matricula", name: 'dataMatricula', allowBlank: false, xtype: 'datefield', submitFormat: 'd/m/Y'}
                     ]},
                 {xtype: 'fieldset', layout: 'hbox', title: "Necessidade Educacional Especial", collapsible: true,
                     fieldDefaults: {labelAlign: 'top', msgTarget: 'side'}, defaults: {border: false, flex: 1, anchor: '99%'},
@@ -56,8 +56,8 @@ Ext.define("ESISystem.view.CadastrarMatricula", {
                                         {boxLabel: "Sim", name: "altasHabilidades", inputValue: 1},
                                         {boxLabel: "Não", name: "altasHabilidades", inputValue: 2, checked: true, margin: '0 0 0 20'}]},
                                 {fieldLabel: "Condutas típicas", items: [
-                                        {boxLabel: "Sim", name: "condutasTipicas", inputValue: 1, checked: true},
-                                        {boxLabel: "Não", name: "condutasTipicas", inputValue: 2, margin: '0 0 0 20'}]},
+                                        {boxLabel: "Sim", name: "condutasTipicas", inputValue: 1},
+                                        {boxLabel: "Não", name: "condutasTipicas", inputValue: 2, checked: true, margin: '0 0 0 20'}]},
                                 {fieldLabel: "Outra", items: [
                                         {boxLabel: "Sim", name: "outra", inputValue: 1},
                                         {boxLabel: "Não", name: "outra", inputValue: 2, checked: true, margin: '0 0 0 20'}]}]}]},
@@ -71,8 +71,8 @@ Ext.define("ESISystem.view.CadastrarMatricula", {
                                 {boxLabel: "Não", name: "alergica", inputValue: 2, checked: true}]},
                         {fieldLabel: "Caso seja, indicar", xtype: 'textfield', allowBlanck: true, name: 'alergiasIndicadas'},
                         {fieldLabel: "Toma remérdio controlado?", items: [
-                                {boxLabel: "Sim", name: "remedioControlado", inputValue: 1, checked: true},
-                                {boxLabel: "Não", name: "remedioControlado", inputValue: 2}]},
+                                {boxLabel: "Sim", name: "remedioControlado", inputValue: 1},
+                                {boxLabel: "Não", name: "remedioControlado", inputValue: 2, checked: true}]},
                         {fieldLabel: "Qual?", name: "qualRemedioControlado", allowBlank: true, xtype: "textfield"}]},
                 {xtype: 'fieldset', title: "Observações", defaultType: 'textarea', collapsible: true, items: [
                         {fieldLabel: "Observações", name: "observacoes", allowBlank: true, anchor: '99%'}]}],
@@ -110,14 +110,24 @@ Ext.define("ESISystem.view.CadastrarMatricula", {
     
     onSaveClick: function(btn, e, opts){
         var form = btn.up("form");
-        
+        if(form.isValid()){
             var basicForm = form.getForm();
             var util = ESISystem.util.MatriculaStore;
+            console.log("Tem data de nascimento?");
+            console.log(basicForm.getFieldValues());
             var model = util.createModel(basicForm.getFieldValues());
             var store = util.getMatriculaStore();
             console.log(basicForm.getRecord());
             store.insert(1, model);
-            store.sync();
-        
+            store.sync({
+                failure: function(){
+                    
+                },
+                success: function(){
+                    basicForm.reset();
+                    
+                }
+            });
+        }
     }
 });

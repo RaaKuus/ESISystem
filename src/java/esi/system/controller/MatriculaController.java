@@ -17,8 +17,6 @@ import esi.system.service.NecessidadesEspeciaisService;
 import esi.system.service.ObservacoesService;
 import esi.system.utils.MatriculaBuilder;
 import esi.system.utils.ResultJS;
-import java.io.StringReader;
-import java.io.StringWriter;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -31,7 +29,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -47,6 +44,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 public class MatriculaController {
+    private boolean debug = true;
     
     @Autowired
     private AlunoService alunoService;
@@ -60,7 +58,7 @@ public class MatriculaController {
     @Autowired
     private ObservacoesService observacoesService;
     
-    @RequestMapping(value = "matricula.action")
+    @RequestMapping(value = "matricula/teste.action")
     public String form(Model model){
         System.out.println("Matricula acessada");
         
@@ -122,7 +120,7 @@ public class MatriculaController {
         Observacoes o = new Observacoes(1, "Observações");
         observacoesService.save(o);
         
-        return "../matricula.html";
+        return "index";
     }
     
     @RequestMapping(value="/matricula/view.action")
@@ -150,6 +148,8 @@ public class MatriculaController {
             
             return resultMat.mapOk(matriculas, total);
         }catch(Exception e){
+            if(this.debug)
+                return ResultJS.mapError(e.getMessage());
             return ResultJS.mapError("Erro ao pesquisar matriculas no banco de dados.");
         }
     }
@@ -157,23 +157,11 @@ public class MatriculaController {
     @RequestMapping(value="/matricula/create.action", method=RequestMethod.POST)
     @ResponseBody
     public Map<String, ? extends Object> create(@RequestBody MatriculaWrapper data, HttpServletRequest request, HttpServletResponse response) throws Exception {
-        ObjectMapper objectMapper = new ObjectMapper();
-        //StringWriter stringWriter = new StringWriter();
-        //stringWriter.append(data);
-        //objectMapper.writeValue(stringWriter, new MatriculaWrapper(new Matricula()));
-        
-        //MatriculaWrapper matriculaWrapper = objectMapper.readValue(new StringReader(data), MatriculaWrapper.class);
-        
-        //System.out.println("Data deveria ser assim: "+stringWriter.toString());
-        
-        //System.out.println(matriculaWrapper.toString());
-        
         System.out.println("Recebi request de insert!");
-        //System.out.println(data);
-        //System.out.println(data.getData().toString());
         ResultJS<Matricula> result = new ResultJS<>();
-        
-        /*try{
+        System.out.println("Data de Nascimento: "+data.getData().getDataNascimento());
+        System.out.println("Data de Matricula: "+data.getData().getDataMatricula());
+        try{
             List<Matricula> matriculas = new ArrayList<>();
             Aluno aluno = data.getData().buildAluno();
             NecessidadesEspeciais necessidadesEspeciais = data.getData().buildNecessidadesEspeciais();
@@ -184,19 +172,19 @@ public class MatriculaController {
             this.necessidadesEspeciaisService.save(necessidadesEspeciais);
             this.condicoesSaudeService.save(condicoesSaude);
             this.observacoesService.save(observacoes);
-            
-            
             MatriculaBuilder matriculaBuilder = new MatriculaBuilder();
             matriculaBuilder.buildAluno(aluno)
                             .buildCondicoesSaude(condicoesSaude)
                             .buildNecessidadesEspeciais(necessidadesEspeciais)
                             .buildObservacoes(observacoes);
             matriculas.add(matriculaBuilder.build());
+            System.out.println(matriculas.toString());
             return result.mapOk(matriculas);
         }catch(Exception e){
+            if(this.debug)
+                return ResultJS.mapError(e.getMessage());
             return ResultJS.mapError("Erro ao salvar matricula no banco de dados.");
-        }*/
-        return ResultJS.mapError("Testando calmae");
+        }
     }
     
     @RequestMapping(value="/matricula/delete.action")
@@ -214,6 +202,8 @@ public class MatriculaController {
             
             return ResultJS.mapSuccessOnly();
         }catch(Exception e){
+            if(this.debug)
+                return ResultJS.mapError(e.getMessage());
             return ResultJS.mapError("Erro ao excluir dados do banco de dados.");
         }
     }

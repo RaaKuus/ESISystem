@@ -5,6 +5,7 @@
  */
 package esi.system.model;
 
+import esi.system.utils.Utils;
 import java.sql.Timestamp;
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 
@@ -182,7 +183,7 @@ public class Matricula {
     }
 
     public String getDataMatricula() {
-        return dataMatricula;
+        return this.dataMatricula;
     }
 
     public void setDataMatricula(String dataMatricula) {
@@ -326,14 +327,14 @@ public class Matricula {
         aluno.setNome(this.nome);
         aluno.setSexo(this.sexo);
         aluno.setNaturalidade(this.naturalidade);
-        aluno.setDataNascimento(null);
+        aluno.setDataNascimento(Utils.parseTimestamp(this.dataNascimento));
         aluno.setEndereco(this.endereco);
         aluno.setNomePai(this.nomePai);
         aluno.setIdentidadePai(this.identidadePai);
         aluno.setNomeMae(this.nomeMae);
         aluno.setIdentidadeMae(this.identidadeMae);
         aluno.setCor(this.cor);
-        aluno.setDataMatricula(null);
+        aluno.setDataMatricula(Utils.parseTimestamp(this.dataMatricula));
         return aluno;
     }
     

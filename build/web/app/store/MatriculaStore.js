@@ -26,6 +26,9 @@ Ext.define("ESISystem.store.MatriculaStore", {
         },
         listeners: {
             exception: function(proxy, response, operation){
+                console.log(proxy);
+                console.log(response);
+                console.log(operation);
                 var msg;
                 if(response)
                     msg = response;
