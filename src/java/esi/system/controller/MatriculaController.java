@@ -172,6 +172,7 @@ public class MatriculaController {
             this.necessidadesEspeciaisService.save(necessidadesEspeciais);
             this.condicoesSaudeService.save(condicoesSaude);
             this.observacoesService.save(observacoes);
+            
             MatriculaBuilder matriculaBuilder = new MatriculaBuilder();
             matriculaBuilder.buildAluno(aluno)
                             .buildCondicoesSaude(condicoesSaude)
@@ -179,8 +180,10 @@ public class MatriculaController {
                             .buildObservacoes(observacoes);
             matriculas.add(matriculaBuilder.build());
             System.out.println(matriculas.toString());
+            
             return result.mapOk(matriculas);
         }catch(Exception e){
+            System.out.println("Caiu no catch!");
             if(this.debug)
                 return ResultJS.mapError(e.getMessage());
             return ResultJS.mapError("Erro ao salvar matricula no banco de dados.");

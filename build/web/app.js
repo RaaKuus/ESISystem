@@ -27,6 +27,7 @@ Ext.require([
     "ESISystem.view.Navegacao",
     "ESISystem.view.MatriculaPanel",
     "ESISystem.view.CadastrarMatricula",
+    "ESISystem.view.WindowTeste",
     //Model
     "ESISystem.model.Estado",
     "ESISystem.model.MatriculaModel",
@@ -34,9 +35,11 @@ Ext.require([
     "ESISystem.store.EstadoStore",
     "ESISystem.store.MatriculaStore",
     
-    "ESISystem.util.MatriculaStore"
+    "ESISystem.util.MatriculaStore",
 
-    //Utils
+    //Ux
+    "ESISystem.ux.panel.PDF",
+    "ESISystem.ux.util.PDF.TextLayerBuilder"
 ]);
 
 Ext.onReady(function () {
@@ -46,12 +49,14 @@ Ext.onReady(function () {
     
     var matricula = Ext.create("ESISystem.view.MatriculaPanel");
     var util = ESISystem.util.MatriculaStore;
-    console.log(util);
     
     
     main.add(matricula);
     main.add(nav);
     main.show();
+    
+    var windowTeste = Ext.create("ESISystem.view.WindowTeste");
+    windowTeste.show();
 });
 
 
