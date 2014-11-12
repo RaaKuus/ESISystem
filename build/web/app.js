@@ -22,21 +22,26 @@ Ext.require([
     "Ext.util.FocusableContainer",
     "Ext.button.Segmented",
     "Ext.layout.container.SegmentedButton",
+    
+    //Model
+    "ESISystem.model.Estado",
+    "ESISystem.model.MatriculaModel",
+    
+    //Store
+    "ESISystem.store.EstadoStore",
+    "ESISystem.store.MatriculaStore",
+    
+    //Utils
+    "ESISystem.util.MatriculaStore",
+    
     //View
     'ESISystem.view.Main',
     "ESISystem.view.Navegacao",
     "ESISystem.view.MatriculaPanel",
     "ESISystem.view.CadastrarMatricula",
+    "ESISystem.view.ListarMatriculas",
     "ESISystem.view.WindowTeste",
-    //Model
-    "ESISystem.model.Estado",
-    "ESISystem.model.MatriculaModel",
-    //Store
-    "ESISystem.store.EstadoStore",
-    "ESISystem.store.MatriculaStore",
     
-    "ESISystem.util.MatriculaStore",
-
     //Ux
     "ESISystem.ux.panel.PDF",
     "ESISystem.ux.util.PDF.TextLayerBuilder"
@@ -44,19 +49,21 @@ Ext.require([
 
 Ext.onReady(function () {
     var main = Ext.create("ESISystem.view.Main");
-    
+    var store1 = ESISystem.util.MatriculaStore.getMatriculaStore();
+    var store2 = ESISystem.util.MatriculaStore.getMatriculaStore();
+    console.log("São iguais?" + (store1 === store2));
+    console.log(store1);
     var nav = Ext.create("ESISystem.view.Navegacao");
     
     var matricula = Ext.create("ESISystem.view.MatriculaPanel");
     var util = ESISystem.util.MatriculaStore;
     
-    
     main.add(matricula);
     main.add(nav);
     main.show();
     
-    var windowTeste = Ext.create("ESISystem.view.WindowTeste");
-    windowTeste.show();
+   // var windowTeste = Ext.create("ESISystem.view.WindowTeste");
+   // windowTeste.show();
 });
 
 

@@ -4,11 +4,15 @@ Ext.define("ESISystem.view.MatriculaPanel", {
     region: 'center',
     initComponent: function () {
         var cadastrarMatriculas = Ext.create("ESISystem.view.CadastrarMatricula");
+        var listarMatriculas = Ext.create("ESISystem.view.ListarMatriculas");
         Ext.apply(this, {
            items:[
-               cadastrarMatriculas
+               cadastrarMatriculas,
+               listarMatriculas
            ] 
         });
+        
+        
         this.callParent(arguments);
     }
 });

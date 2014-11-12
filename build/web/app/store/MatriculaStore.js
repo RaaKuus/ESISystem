@@ -11,7 +11,7 @@ Ext.define("ESISystem.store.MatriculaStore", {
             read : 'matricula/view.action',
             create : 'matricula/create.action',
             update: 'matricula/create.action',
-            destroy: 'matricula/delete.action'
+            destroy: 's/delete.action'
         },
         reader: {
             type: 'json',

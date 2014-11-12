@@ -50,7 +50,7 @@ Ext.define('ESISystem.ux.panel.PDF',{
      * @cfg{String} beforePageText
      * The text displayed before the input item.
      */
-    beforePageText: 'Page',
+    beforePageText: 'Página',
     
     /**
      * @cfg{String} afterPageText
@@ -58,7 +58,7 @@ Ext.define('ESISystem.ux.panel.PDF',{
      *{0} as a token that is replaced by the number of total pages. This token should be preserved when overriding this
      * string if showing the total page count is desired.
      */
-    afterPageText: 'of {0}',
+    afterPageText: 'de {0}',
     
     /**
      * @cfg{String} firstText

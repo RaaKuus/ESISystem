@@ -36,6 +36,7 @@ Ext.define("ESISystem.util.MatriculaStore", {
            
        });
    },
+   
    getMatriculaStore : function(){
        return (this.matriculaStore === null ? this.createMatriculaStore() : this.matriculaStore);
    },
