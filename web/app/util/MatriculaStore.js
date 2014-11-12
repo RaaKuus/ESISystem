@@ -38,13 +38,18 @@ Ext.define("ESISystem.util.MatriculaStore", {
    },
    
    getMatriculaStore : function(){
-       return (this.matriculaStore === null ? this.createMatriculaStore() : this.matriculaStore);
+       console.log("--1--");
+       var store =  (this.matriculaStore === null ? this.createMatriculaStore() : this.matriculaStore);
+       console.log("--4--");
+       return store;
    },
    
    matriculaStore: null,
    
    createMatriculaStore : function(){
+       console.log("--2--");
        this.matriculaStore = Ext.create("ESISystem.store.MatriculaStore");
+       console.log("--3--");
        return this.matriculaStore;
    }
 });

@@ -1,12 +1,12 @@
 Ext.define("ESISystem.view.Main", {
 	extend: "Ext.window.Window",
         alias: 'widget.mainwindow',
-	title: 'Sistema Escolar - Escola Santa Izabel',
+	title: 'Escola Santa Izabel - Sistema Escolar',
 	header: {
 		titlePosition: 2,
 		titleAlign: 'center'
 	},
-	closeable: false,
+	closable: false,
 	minWidth: 500,
 	height: 500,
 	width: 800,
@@ -18,5 +18,10 @@ Ext.define("ESISystem.view.Main", {
 	layout: {
 		type: 'border',
 		padding: 5
-	}
+	},
+        initComponent: function(){
+            //console.log("--Main--");
+            
+            this.callParent(arguments);
+        }
 });

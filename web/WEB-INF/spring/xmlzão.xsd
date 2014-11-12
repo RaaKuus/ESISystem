@@ -1,0 +1,6 @@
+
+<property name="mappingLocations">
+    <list>
+        <value>WEB-INF/hbm/User.hbm.xml</value>
+    </list>
+</property>

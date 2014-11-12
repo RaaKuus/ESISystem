@@ -113,19 +113,17 @@ Ext.define("ESISystem.view.CadastrarMatricula", {
         if(form.isValid()){
             var basicForm = form.getForm();
             var util = ESISystem.util.MatriculaStore;
-            console.log("Tem data de nascimento?");
-            console.log(basicForm.getFieldValues());
+            
             var model = util.createModel(basicForm.getFieldValues());
             var store = util.getMatriculaStore();
-            console.log(basicForm.getRecord());
             store.insert(1, model);
             store.sync({
                 failure: function(){
-                    
+                    Ext.Msg.alert('Cadastro de Matricula', 'Erro, a Matricula não foi salva!');
                 },
                 success: function(){
                     basicForm.reset();
-                    
+                    Ext.Msg.alert('Cadastro de Matricula', 'Matricula salva com sucesso!');
                 }
             });
         }

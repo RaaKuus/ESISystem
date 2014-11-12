@@ -24,11 +24,11 @@ Ext.require([
     "Ext.layout.container.SegmentedButton",
     
     //Model
-    "ESISystem.model.Estado",
+    //"ESISystem.model.Estado",
     "ESISystem.model.MatriculaModel",
     
     //Store
-    "ESISystem.store.EstadoStore",
+    //"ESISystem.store.EstadoStore",
     "ESISystem.store.MatriculaStore",
     
     //Utils
@@ -40,7 +40,7 @@ Ext.require([
     "ESISystem.view.MatriculaPanel",
     "ESISystem.view.CadastrarMatricula",
     "ESISystem.view.ListarMatriculas",
-    "ESISystem.view.WindowTeste",
+    //"ESISystem.view.WindowTeste",
     
     //Ux
     "ESISystem.ux.panel.PDF",
@@ -48,11 +48,13 @@ Ext.require([
 ]);
 
 Ext.onReady(function () {
+    //console.log("---");
     var main = Ext.create("ESISystem.view.Main");
+    
     var store1 = ESISystem.util.MatriculaStore.getMatriculaStore();
     var store2 = ESISystem.util.MatriculaStore.getMatriculaStore();
-    console.log("São iguais?" + (store1 === store2));
-    console.log(store1);
+    //console.log("São iguais?" + (store1 === store2));
+    //console.log(store1);
     var nav = Ext.create("ESISystem.view.Navegacao");
     
     var matricula = Ext.create("ESISystem.view.MatriculaPanel");

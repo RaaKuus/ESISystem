@@ -31,7 +31,7 @@ public class AlunoDaoImpl extends AbstractDaoImpl<Aluno, String> implements Alun
 
     @Override
     public int getTotal() {
-        return DataAccessUtils.intResult(this.getTemplate().find("Select COUNT(*) FROM alunos"));
+        return DataAccessUtils.intResult(this.getTemplate().find("Select COUNT(*) FROM Aluno"));
     }
     
 }

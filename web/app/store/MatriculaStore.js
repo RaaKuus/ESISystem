@@ -1,17 +1,17 @@
 Ext.define("ESISystem.store.MatriculaStore", {
     extend: 'Ext.data.Store',
     model: 'ESISystem.model.MatriculaModel',
+    storeId: 'matriculaStore',
     pageSize: 35,
     //autoSync: true,
     autoLoad: {start: 0, limit: 35},
-    
     proxy: {
         type: 'ajax',
         api: {
             read : 'matricula/view.action',
             create : 'matricula/create.action',
             update: 'matricula/create.action',
-            destroy: 's/delete.action'
+            destroy: 'matricula/delete.action'
         },
         reader: {
             type: 'json',
@@ -26,9 +26,6 @@ Ext.define("ESISystem.store.MatriculaStore", {
         },
         listeners: {
             exception: function(proxy, response, operation){
-                console.log(proxy);
-                console.log(response);
-                console.log(operation);
                 var msg;
                 if(response)
                     msg = response;
