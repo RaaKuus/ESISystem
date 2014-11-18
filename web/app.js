@@ -32,7 +32,7 @@ Ext.require([
     "ESISystem.store.MatriculaStore",
     
     //Utils
-    "ESISystem.util.MatriculaStore",
+    "ESISystem.util.MatriculaUtil",
     
     //View
     'ESISystem.view.Main',
@@ -40,6 +40,9 @@ Ext.require([
     "ESISystem.view.MatriculaPanel",
     "ESISystem.view.CadastrarMatricula",
     "ESISystem.view.ListarMatriculas",
+    "ESISystem.view.AnoLetivoPanel",
+    "ESISystem.view.CadastrarAnoLetivo",
+    
     //"ESISystem.view.WindowTeste",
     
     //Ux
@@ -51,19 +54,18 @@ Ext.onReady(function () {
     //console.log("---");
     var main = Ext.create("ESISystem.view.Main");
     
-    var store1 = ESISystem.util.MatriculaStore.getMatriculaStore();
-    var store2 = ESISystem.util.MatriculaStore.getMatriculaStore();
     //console.log("São iguais?" + (store1 === store2));
     //console.log(store1);
     var nav = Ext.create("ESISystem.view.Navegacao");
     
     var matricula = Ext.create("ESISystem.view.MatriculaPanel");
-    var util = ESISystem.util.MatriculaStore;
     
     main.add(matricula);
     main.add(nav);
     main.show();
     
+    var anoletivo = Ext.create("ESISystem.view.AnoLetivoPanel");
+    anoletivo.show();
    // var windowTeste = Ext.create("ESISystem.view.WindowTeste");
    // windowTeste.show();
 });

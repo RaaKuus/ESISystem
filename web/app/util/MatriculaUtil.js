@@ -1,4 +1,4 @@
-Ext.define("ESISystem.util.MatriculaStore", {
+Ext.define("ESISystem.util.MatriculaUtil", {
    singleton: true,
    createModel: function(obj){
        return Ext.create("ESISystem.model.MatriculaModel",{
@@ -38,18 +38,14 @@ Ext.define("ESISystem.util.MatriculaStore", {
    },
    
    getMatriculaStore : function(){
-       console.log("--1--");
        var store =  (this.matriculaStore === null ? this.createMatriculaStore() : this.matriculaStore);
-       console.log("--4--");
        return store;
    },
    
    matriculaStore: null,
    
    createMatriculaStore : function(){
-       console.log("--2--");
        this.matriculaStore = Ext.create("ESISystem.store.MatriculaStore");
-       console.log("--3--");
        return this.matriculaStore;
    }
 });

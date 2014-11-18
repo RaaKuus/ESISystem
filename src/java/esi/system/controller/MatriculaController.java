@@ -44,7 +44,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 public class MatriculaController {
-    private boolean debug = true;
+    private final boolean debug = true;
     
     @Autowired
     private AlunoService alunoService;
@@ -157,10 +157,7 @@ public class MatriculaController {
     @RequestMapping(value="/matricula/create.action", method=RequestMethod.POST)
     @ResponseBody
     public Map<String, ? extends Object> create(@RequestBody MatriculaWrapper data, HttpServletRequest request, HttpServletResponse response) throws Exception {
-        System.out.println("Recebi request de insert!");
         ResultJS<Matricula> result = new ResultJS<>();
-        System.out.println("Data de Nascimento: "+data.getData().getDataNascimento());
-        System.out.println("Data de Matricula: "+data.getData().getDataMatricula());
         try{
             List<Matricula> matriculas = new ArrayList<>();
             Aluno aluno = data.getData().buildAluno();
@@ -180,7 +177,6 @@ public class MatriculaController {
                             .buildObservacoes(observacoes);
             matriculas.add(matriculaBuilder.build());
             System.out.println(matriculas.toString());
-            
             return result.mapOk(matriculas);
         }catch(Exception e){
             System.out.println("Caiu no catch!");

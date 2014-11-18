@@ -26,6 +26,7 @@ public class AlunoDaoImpl extends AbstractDaoImpl<Aluno, String> implements Alun
 
     @Override
     public List<Aluno> findAlunos(String nome) {
+        
         return this.findByCriteria(Restrictions.like("nome", nome, MatchMode.START));
     }
 

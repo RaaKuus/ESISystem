@@ -29,7 +29,7 @@ public abstract class AbstractDaoImpl<E, I extends Serializable> implements Abst
     @Autowired
     private SessionFactory sessionFactory;
     
-    private Session getCurrentSession(){
+    protected Session getCurrentSession(){
         return sessionFactory.getCurrentSession();
     }
     

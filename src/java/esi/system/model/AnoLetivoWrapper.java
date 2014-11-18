@@ -7,20 +7,19 @@ package esi.system.model;
 
 /**
  *
- * @author RaaKuus
+ * @author Bruno
  */
-public class MatriculaWrapper {
-    private Matricula data;
+public class AnoLetivoWrapper {
+    private AnoLetivo data;
 
-    public MatriculaWrapper() {
+    public AnoLetivoWrapper() {
     }
 
-    public Matricula getData() {
+    public void setData(AnoLetivo data) {
+        this.data = data;
+    }
+
+    public AnoLetivo getData() {
         return data;
     }
-
-    public void setData(Matricula Data) {
-        this.data = Data;
-    }
-    
 }

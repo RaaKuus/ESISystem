@@ -112,7 +112,7 @@ Ext.define("ESISystem.view.CadastrarMatricula", {
         var form = btn.up("form");
         if(form.isValid()){
             var basicForm = form.getForm();
-            var util = ESISystem.util.MatriculaStore;
+            var util = ESISystem.util.MatriculaUtil;
             
             var model = util.createModel(basicForm.getFieldValues());
             var store = util.getMatriculaStore();
