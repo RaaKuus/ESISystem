@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="esi.system.model.Turma" table="turma">
+        <id name="id" type="int" column="id"/>
+        <property name="serie" column="serie" type="string"/>
+        <property name="turno" column="turno" type="char"/>
+        <property name="turma" column="turma" type="string"/>
+        <property name="anosLetivosId" column="ano_letivo_id" type="int"/>
+    </class>
+</hibernate-mapping>

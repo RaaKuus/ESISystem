@@ -21,7 +21,7 @@ public class NecessidadesEspeciaisServiceImpl implements NecessidadesEspeciaisSe
     
     @Override
     @Transactional(readOnly = true)
-    public NecessidadesEspeciais findById(String id) {
+    public NecessidadesEspeciais findById(Integer id) {
         return necessidadesEspeciaisDao.findById(id);
     }
 
@@ -31,7 +31,7 @@ public class NecessidadesEspeciaisServiceImpl implements NecessidadesEspeciaisSe
     }
 
     @Override
-    public void delete(String id) {
+    public void delete(Integer id) {
         NecessidadesEspeciais necessidadesEspeciais = necessidadesEspeciaisDao.findById(id);
         if(necessidadesEspeciais != null)
             necessidadesEspeciaisDao.delete(necessidadesEspeciais);
@@ -43,7 +43,7 @@ public class NecessidadesEspeciaisServiceImpl implements NecessidadesEspeciaisSe
     }
 
     @Override
-    public List<NecessidadesEspeciais> getListView(int start, int limit) {
+    public List<NecessidadesEspeciais> getViewList(int start, int limit) {
         return necessidadesEspeciaisDao.getViewList(start, limit);
     }
 }

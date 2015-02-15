@@ -13,9 +13,9 @@ import java.util.List;
  * @param <E>
  */
 public interface AbstractService<E> {
-    E findById(String id);
+    E findById(Integer id);
     void save(E e);
-    void delete(String id);
+    void delete(Integer id);
     int getTotal();
-    List<E> getListView(int start, int limit);
+    List<E> getViewList(int start, int limit);
 }

@@ -8,10 +8,8 @@
         <id name="matricula" type="int">
             <column name="matricula" />
         </id>
-        <property name="nome" type="string">
-            <column name="aluno" not-null="false" />
-        </property>
-        
+        <property name="nome" type="string" column="aluno"/>
+            
         <property name="sexo" type="int">
             <column name="sexo" not-null="false" />
         </property>

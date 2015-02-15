@@ -13,5 +13,5 @@ import java.util.List;
  * @author Bruno
  */
 public interface AnoLetivoService extends AbstractService<AnoLetivo> {
-    List<AnoLetivo> list();
+    List<AnoLetivo> findAnosLetivos(String ano);
 }

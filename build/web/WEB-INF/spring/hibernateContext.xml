@@ -29,6 +29,14 @@
                 <value>WEB-INF/hbm/NecessidadesEspeciais.hbm.xml</value>
                 <value>WEB-INF/hbm/Observacoes.hbm.xml</value>
                 <value>WEB-INF/hbm/CondicoesSaude.hbm.xml</value>
+                <value>WEB-INF/hbm/AnoLetivo.hbm.xml</value>
+                <value>WEB-INF/hbm/Turma.hbm.xml</value>
+                <value>WEB-INF/hbm/AlunoAnoLetivo.hbm.xml</value>
+                
+                <value>WEB-INF/hbm/DocumentosEntregues.hbm.xml</value>
+                <value>WEB-INF/hbm/Email.hbm.xml</value>
+                <value>WEB-INF/hbm/Telefones.hbm.xml</value>
+                
             </list>
         </property>
         <property name="hibernateProperties">

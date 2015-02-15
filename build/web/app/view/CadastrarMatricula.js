@@ -2,7 +2,7 @@ Ext.define("ESISystem.view.CadastrarMatricula", {
     extend: 'Ext.form.Panel',
     initComponent: function () {
         Ext.apply(this, {
-            xtype: 'form',
+            closable: true,
             alias: 'widget.matricula',
             layout: {type: 'form'},
             title: 'Cadastrar Matricula',
@@ -88,10 +88,14 @@ Ext.define("ESISystem.view.CadastrarMatricula", {
                     handler: this.onSaveClick
                 }
             ]});
-
-        this.callParent(arguments);  
+        
+        this.callParent(arguments);
     },
-    
+    listeners: {
+      close: function(panel, eOpts){
+          ESISystem.util.nav.ContentBodyManager.close(panel, eOpts);
+      }
+    },
     onResetClick: function(btn, e, opts){
         console.log(btn);
         var form = btn.up('form');
@@ -113,19 +117,38 @@ Ext.define("ESISystem.view.CadastrarMatricula", {
         if(form.isValid()){
             var basicForm = form.getForm();
             var util = ESISystem.util.MatriculaUtil;
+            function sendStoreRequest(){
+                var model = util.createModel(basicForm.getFieldValues());
+                var store = util.getMatriculaStore();
+                store.insert(1, model);
+                store.sync({
+                    failure: function(){
+                        Ext.Msg.alert('Cadastro de Matricula', 'Erro, a Matricula não foi salva!');
+                    },
+                    success: function(){
+                        basicForm.reset();
+                        Ext.Msg.alert('Cadastro de Matricula', 'Matricula salva com sucesso!');
+                    }
+                });
+            }
+            function sendAjaxRequest(){
+                var data = {
+                    data: util.createData(basicForm.getFieldValues())
+                };
+                Ext.Ajax.request({
+                    url: 'matricula/create.action',
+                    params:JSON.stringify(data),
+                    success: function(response){
+                        var text = response.responseText;
+                        console.log(text);
+                        basicForm.reset();
+                        Ext.Msg.alert('Cadastro de Matricula', "Matricula salva com sucesso!");
+                    }
+                });
+            }
             
-            var model = util.createModel(basicForm.getFieldValues());
-            var store = util.getMatriculaStore();
-            store.insert(1, model);
-            store.sync({
-                failure: function(){
-                    Ext.Msg.alert('Cadastro de Matricula', 'Erro, a Matricula não foi salva!');
-                },
-                success: function(){
-                    basicForm.reset();
-                    Ext.Msg.alert('Cadastro de Matricula', 'Matricula salva com sucesso!');
-                }
-            });
+            //sendStoreRequest();
+            sendAjaxRequest();
         }
     }
 });

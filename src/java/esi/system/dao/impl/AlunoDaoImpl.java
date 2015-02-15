@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
  * @author Bruno
  */
 @Repository
-public class AlunoDaoImpl extends AbstractDaoImpl<Aluno, String> implements AlunoDao {
+public class AlunoDaoImpl extends AbstractDaoImpl<Aluno, Integer> implements AlunoDao {
 
     protected AlunoDaoImpl(){
         super(Aluno.class);

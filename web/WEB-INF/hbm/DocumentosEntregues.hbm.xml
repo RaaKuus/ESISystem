@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="esi.system.model.DocumentosEntregues" table="documentos_entregues">
+        <id name="alunosMatricula" type="int" column="alunos_matricula"/>
+        <property name="rg" column="rg" type="string"/>
+        <property name="cpf" column="cpf" type="string"/>
+        <property name="comprovanteResidencia" column="comprovante_residencia" type="string"/>
+        <property name="certidaoNascimento" column="certidao_nascimento" type="string"/>
+        <property name="cartaoVacina" column="cartao_vacina" type="string"/>
+        <property name="historicoEscolar" column="historico_escolar" type="string"/>
+        <property name="foto" column="foto" type="string"/>
+    </class>
+</hibernate-mapping>

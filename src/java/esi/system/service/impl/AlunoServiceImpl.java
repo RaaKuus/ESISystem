@@ -8,7 +8,6 @@ package esi.system.service.impl;
 import esi.system.dao.AlunoDao;
 import esi.system.model.Aluno;
 import esi.system.service.AlunoService;
-import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,7 +31,7 @@ public class AlunoServiceImpl implements AlunoService{
     }
 
     @Override
-    public Aluno findById(String id) {
+    public Aluno findById(Integer id) {
         return alunoDao.findById(id);
     }
 
@@ -44,7 +43,7 @@ public class AlunoServiceImpl implements AlunoService{
 
     @Override
     @Transactional(readOnly = false)
-    public void delete(String id) {
+    public void delete(Integer id) {
         Aluno aluno = alunoDao.findById(id);
         if(aluno != null)
             alunoDao.delete(aluno);
@@ -56,7 +55,7 @@ public class AlunoServiceImpl implements AlunoService{
     }
 
     @Override
-    public List<Aluno> getListView(int start, int limit) {
+    public List<Aluno> getViewList(int start, int limit) {
         return alunoDao.getViewList(start, limit);
     }
 

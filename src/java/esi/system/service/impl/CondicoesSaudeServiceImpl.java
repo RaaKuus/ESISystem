@@ -22,7 +22,7 @@ public class CondicoesSaudeServiceImpl implements CondicoesSaudeService {
     
     @Override
     @Transactional(readOnly = true)
-    public CondicoesSaude findById(String id) {
+    public CondicoesSaude findById(Integer id) {
         return condicoesSaudeDao.findById(id);
     }
     
@@ -32,7 +32,7 @@ public class CondicoesSaudeServiceImpl implements CondicoesSaudeService {
     }
 
     @Override
-    public void delete(String id) {
+    public void delete(Integer id) {
         CondicoesSaude condicoesSaude = condicoesSaudeDao.findById(id);
         if(condicoesSaude != null)
             condicoesSaudeDao.delete(condicoesSaude);
@@ -44,7 +44,7 @@ public class CondicoesSaudeServiceImpl implements CondicoesSaudeService {
     }
 
     @Override
-    public List<CondicoesSaude> getListView(int start, int limit) {
+    public List<CondicoesSaude> getViewList(int start, int limit) {
         return condicoesSaudeDao.getViewList(start, limit);
     }
     

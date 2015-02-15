@@ -130,10 +130,10 @@ public class MatriculaController {
         try{
             List<Matricula> matriculas = new ArrayList<>();
             
-            List<Aluno> alunos = alunoService.getListView(start, limit);
-            List<NecessidadesEspeciais> necessidadesEspeciais = necessidadesEspeciaisService.getListView(start, limit);
-            List<CondicoesSaude> condicoesSaude = condicoesSaudeService.getListView(start, limit);
-            List<Observacoes> observacoes = observacoesService.getListView(start, limit);
+            List<Aluno> alunos = alunoService.getViewList(start, limit);
+            List<NecessidadesEspeciais> necessidadesEspeciais = necessidadesEspeciaisService.getViewList(start, limit);
+            List<CondicoesSaude> condicoesSaude = condicoesSaudeService.getViewList(start, limit);
+            List<Observacoes> observacoes = observacoesService.getViewList(start, limit);
             
             for(int i = 0; i < alunos.size(); i++){
                MatriculaBuilder matriculaBuilder = new MatriculaBuilder();
@@ -143,9 +143,7 @@ public class MatriculaController {
                                .buildObservacoes(observacoes.get(i));
                matriculas.add(matriculaBuilder.build());
             }
-            
             int total = alunoService.getTotal();
-            
             return resultMat.mapOk(matriculas, total);
         }catch(Exception e){
             if(this.debug)
@@ -194,10 +192,10 @@ public class MatriculaController {
             CondicoesSaude condicoesSaude = data.getData().buildCondicoesSaude();
             Observacoes observacoes = data.getData().buildObservacoes();
             
-            alunoService.delete(String.valueOf(aluno.getMatricula()));
-            necessidadesEspeciaisService.delete(String.valueOf(necessidadesEspeciais.getMatricula()));
-            condicoesSaudeService.delete(String.valueOf(condicoesSaude.getMatricula()));
-            observacoesService.delete(String.valueOf(observacoes.getMatricula()));
+            alunoService.delete(aluno.getMatricula());
+            necessidadesEspeciaisService.delete(necessidadesEspeciais.getMatricula());
+            condicoesSaudeService.delete(condicoesSaude.getMatricula());
+            observacoesService.delete(observacoes.getMatricula());
             
             return ResultJS.mapSuccessOnly();
         }catch(Exception e){

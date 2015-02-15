@@ -20,7 +20,7 @@ public class ObservacoesServiceImpl implements ObservacoesService {
     private ObservacoesDao observacoesDao;
     
     @Override
-    public Observacoes findById(String id) {
+    public Observacoes findById(Integer id) {
         return observacoesDao.findById(id);
     }
 
@@ -30,7 +30,7 @@ public class ObservacoesServiceImpl implements ObservacoesService {
     }
 
     @Override
-    public void delete(String id) {
+    public void delete(Integer id) {
         Observacoes observacoes = observacoesDao.findById(id);
         if(observacoes != null)
             observacoesDao.delete(observacoes);
@@ -42,7 +42,7 @@ public class ObservacoesServiceImpl implements ObservacoesService {
     }
 
     @Override
-    public List<Observacoes> getListView(int start, int limit) {
+    public List<Observacoes> getViewList(int start, int limit) {
         return observacoesDao.getViewList(start, limit);
     }
     

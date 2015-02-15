@@ -7,6 +7,7 @@ package esi.system.service.impl;
 
 import esi.system.dao.AnoLetivoDao;
 import esi.system.model.AnoLetivo;
+import esi.system.service.AlunoService;
 import esi.system.service.AnoLetivoService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author Bruno
  */
+
 @Service("anoLetivoService")
 @Transactional(readOnly = true)
 public class AnoLetivoServiceImpl implements AnoLetivoService {
@@ -25,22 +27,24 @@ public class AnoLetivoServiceImpl implements AnoLetivoService {
     private AnoLetivoDao anoLetivoDao;
     
     @Override
-    public List<AnoLetivo> list() {
-        return anoLetivoDao.list();
+    public List<AnoLetivo> findAnosLetivos(String ano) {
+        return anoLetivoDao.findAnosLetivos(ano);
     }
 
     @Override
-    public AnoLetivo findById(String id) {
+    public AnoLetivo findById(Integer id) {
         return anoLetivoDao.findById(id);
     }
 
     @Override
+    @Transactional(readOnly = false)
     public void save(AnoLetivo e) {
         anoLetivoDao.save(e);
     }
 
     @Override
-    public void delete(String id) {
+    @Transactional(readOnly = false)
+    public void delete(Integer id) {
         AnoLetivo anoLetivo = anoLetivoDao.findById(id);
         if(anoLetivo != null)
             anoLetivoDao.delete(anoLetivo);
@@ -52,8 +56,8 @@ public class AnoLetivoServiceImpl implements AnoLetivoService {
     }
 
     @Override
-    public List<AnoLetivo> getListView(int start, int limit) {
+    public List<AnoLetivo> getViewList(int start, int limit) {
         return anoLetivoDao.getViewList(start, limit);
     }
-    
+
 }

@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Bruno
  */
-public interface AlunoDao extends AbstractDao<Aluno, String> {
+public interface AlunoDao extends AbstractDao<Aluno, Integer> {
     void save(Aluno aluno);
     List<Aluno> findAlunos(String nome);
 }

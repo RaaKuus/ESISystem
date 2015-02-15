@@ -12,6 +12,6 @@ import esi.system.model.Observacoes;
  * @author Bruno
  */
 
-public interface ObservacoesDao extends AbstractDao<Observacoes, String> {
+public interface ObservacoesDao extends AbstractDao<Observacoes, Integer> {
     void save(Observacoes o);
 }

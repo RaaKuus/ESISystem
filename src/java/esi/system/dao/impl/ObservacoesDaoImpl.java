@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
  * @author Bruno
  */
 @Repository
-public class ObservacoesDaoImpl extends AbstractDaoImpl<Observacoes, String> implements ObservacoesDao {
+public class ObservacoesDaoImpl extends AbstractDaoImpl<Observacoes, Integer> implements ObservacoesDao {
     
     protected ObservacoesDaoImpl(){
         super(Observacoes.class);

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
  * @author Bruno
  */
 @Repository
-public class NecessidadesEspeciaisDaoImpl extends AbstractDaoImpl<NecessidadesEspeciais, String>
+public class NecessidadesEspeciaisDaoImpl extends AbstractDaoImpl<NecessidadesEspeciais, Integer>
                 implements NecessidadesEspeciaisDao {
 
     protected NecessidadesEspeciaisDaoImpl(){

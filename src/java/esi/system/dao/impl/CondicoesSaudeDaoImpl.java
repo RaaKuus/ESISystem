@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
  * @author Bruno
  */
 @Repository
-public class CondicoesSaudeDaoImpl extends AbstractDaoImpl<CondicoesSaude, String> implements CondicoesSaudeDao {
+public class CondicoesSaudeDaoImpl extends AbstractDaoImpl<CondicoesSaude, Integer> implements CondicoesSaudeDao {
     
     protected CondicoesSaudeDaoImpl(){
         super(CondicoesSaude.class);

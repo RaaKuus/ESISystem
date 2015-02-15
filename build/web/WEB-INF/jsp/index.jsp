@@ -3,7 +3,7 @@
 <html lang="pt-br">
 	<head>
 		<meta charset="UTF-8">
-		<title>Sistema Escolar ESI</title>
+		<title>Sistema Escolar ESI BUH</title>
 		<link rel="stylesheet" type="text/css" href="../packages/ext-theme-crisp/build/resources/ext-theme-crisp-all.css">
 		<script type="text/javascript" src="ext-all.js"></script>
 		<script type="text/javascript" src="packages/ext-theme-crisp/build/ext-theme-crisp.js"></script>

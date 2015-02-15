@@ -6,6 +6,6 @@ import esi.system.model.CondicoesSaude;
  *
  * @author Bruno
  */
-public interface CondicoesSaudeDao extends AbstractDao<CondicoesSaude, String>{
+public interface CondicoesSaudeDao extends AbstractDao<CondicoesSaude, Integer>{
     void save(CondicoesSaude cs);
 }

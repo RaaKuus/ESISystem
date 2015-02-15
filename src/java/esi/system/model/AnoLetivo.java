@@ -1,6 +1,9 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package esi.system.model;
-
-import java.util.Objects;
 
 /**
  *
@@ -8,9 +11,15 @@ import java.util.Objects;
  */
 public class AnoLetivo {
     private int id;
-    private String anoLetivo;
+    private int ano;
+    
+    public AnoLetivo(){
+        
+    }
 
-    public AnoLetivo() {
+    public AnoLetivo(int id, int ano) {
+        this.id = id;
+        this.ano = ano;
     }
 
     public int getId() {
@@ -21,19 +30,19 @@ public class AnoLetivo {
         this.id = id;
     }
 
-    public String getAnoLetivo() {
-        return anoLetivo;
+    public int getAno() {
+        return ano;
     }
 
-    public void setAnoLetivo(String anoLetivo) {
-        this.anoLetivo = anoLetivo;
+    public void setAno(int ano) {
+        this.ano = ano;
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 17 * hash + this.id;
-        hash = 17 * hash + Objects.hashCode(this.anoLetivo);
+        int hash = 7;
+        hash = 97 * hash + this.id;
+        hash = 97 * hash + this.ano;
         return hash;
     }
 
@@ -49,8 +58,12 @@ public class AnoLetivo {
         if (this.id != other.id) {
             return false;
         }
-        return Objects.equals(this.anoLetivo, other.anoLetivo);
+        if (this.ano != other.ano) {
+            return false;
+        }
+        return true;
     }
+
     
     
 }
