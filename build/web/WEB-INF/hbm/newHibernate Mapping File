@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="esi.system.mode.Login" table="login">
+        <id name="id" type="int" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="cpf" column="cpf" type="string"/>
+        <property name="senha" column="senha" type="string"/>
+        <property name="salt" column="salt" type="string"/>
+        <property name="permissao" column="permissao" type="string"/>
+        
+    </class>
+</hibernate-mapping>

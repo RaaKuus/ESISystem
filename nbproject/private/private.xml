@@ -3,19 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/src/java/esi/system/service/impl/TurmaServiceImpl.java</file>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/src/java/esi/system/dao/impl/TelefoneDaoImpl.java</file>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/src/java/esi/system/dao/TurmaDao.java</file>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/src/java/esi/system/service/EmailService.java</file>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/src/java/esi/system/controller/Teste.java</file>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/src/java/esi/system/dao/impl/TurmaDaoImpl.java</file>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/src/java/esi/system/dao/TelefoneDao.java</file>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/src/java/esi/system/dao/DocumentosEntreguesDao.java</file>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/src/java/esi/system/service/impl/EmailServiceImpl.java</file>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/src/java/esi/system/service/impl/TelefoneServiceImpl.java</file>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/src/java/esi/system/controller/MatriculaController.java</file>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/src/java/esi/system/dao/impl/EmailDaoImpl.java</file>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/src/java/esi/system/dao/EmailDao.java</file>
+            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/web/app/util/permissions/PermissionFactory.js</file>
+            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/web/app/view/login/LoginView.js</file>
+            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/web/application.js</file>
+            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/src/java/esi/system/controller/LoginController.java</file>
+            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/web/app/util/LoginSplashscreen.js</file>
+            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/web/app/util/login/LoginSetup.js</file>
         </group>
     </open-files>
 </project-private>

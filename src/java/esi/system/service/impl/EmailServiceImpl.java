@@ -42,6 +42,7 @@ public class EmailServiceImpl implements EmailService {
     }
 
     @Override
+    @Transactional(readOnly = false)
     public void delete(Integer id) {
         Email email = emailDao.findById(id);
         if(email != null)

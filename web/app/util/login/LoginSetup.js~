@@ -1,0 +1,18 @@
+Ext.define("ESISystem.util.login.LoginSetup", {
+    singleton: true,
+    url: '/ESISystem/autenticacao/login.action',
+    
+    success: function(response, opts){
+        var result = Ext.JSON.decode(response.responseText);
+        if(result.success){
+            Ext.Msg.alert('Logado com sucesso!', result.message);
+        } else {
+            Ext.Msg.alert('Erro!', result.message);
+        }
+    },
+    
+    failure: function(response, opts){
+        Ext.Msg.alert('Falha!', 'Falha na autenticação...');
+    }
+});
+

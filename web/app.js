@@ -46,24 +46,18 @@ Ext.require([
     "ESISystem.util.nav.WindowContentBody",
     
     //View
-    'ESISystem.view.Main',
+    "ESISystem.view.Main",
     "ESISystem.view.Navegacao",
     "ESISystem.view.MainPanel",
     "ESISystem.view.CadastrarMatricula",
     "ESISystem.view.ListarMatriculas",
     "ESISystem.view.AnoLetivoPanel",
     "ESISystem.view.CadastrarAnoLetivo",
-    "ESISystem.view.NavTreePanel",
-    
-    //"ESISystem.view.WindowTeste",
-    
-    //Ux
-    "ESISystem.ux.panel.PDF",
-    "ESISystem.ux.util.PDF.TextLayerBuilder"
+    "ESISystem.view.NavTreePanel"
+   
 ]);
 
 Ext.onReady(function () {
-    console.log("chegou aqui! 1");
     //Tab Panel - Painel principal
     var mainPanel = Ext.create("ESISystem.view.MainPanel");
    
@@ -71,41 +65,23 @@ Ext.onReady(function () {
     var nav = Ext.create("ESISystem.view.Navegacao");
     var navTreePanel = Ext.create("ESISystem.view.NavTreePanel");
     nav.add(navTreePanel);
-    /*
-    //Gerenciamento de Paineis
-    var gerenciamentoPainel = ESISystem.util.GerenciamentoPainel;
-    
-    //Registrando a TabPanel principal no gerenciamento
-    gerenciamentoPainel.setMainPanel(mainPanel);
-    
-    //Registrando páginas ao gerenciamento
-    gerenciamentoPainel.registrar([
-        {nome: "Cadastrar Matricula", painel: "ESISystem.view.CadastrarMatricula", inicial: true},
-        {nome: "Listar Matriculas", painel: "ESISystem.view.ListarMatriculas", inicial: true}
-    ]);
-    
-   
-    //Inicializando Paginas iniciais
-    gerenciamentoPainel.insertPanelsToMain(gerenciamentoPainel.getPaineisIniciais());
-    */
-    //Janela Principal
-    
     
     //ContentBody
     var contentBodyLoader = ESISystem.util.nav.ContentBodyLoader;
+    
     contentBodyLoader.add({
        name: "Cadastrar Matricula",
        path: "ESISystem.view.CadastrarMatricula",
        initial: true,
        type: "panel"
     });
+    
     contentBodyLoader.add({
        name: "Listar Matriculas",
        path: "ESISystem.view.ListarMatriculas",
        initial: false,
        type: "panel"
     });
-    console.log("chegou aqui!");
     contentBodyLoader.initialize(mainPanel);
     
     var main = Ext.create("ESISystem.view.Main");
@@ -113,7 +89,6 @@ Ext.onReady(function () {
     main.add(mainPanel);
     main.show();
     
-   
 });
 
 
