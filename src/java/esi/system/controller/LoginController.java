@@ -52,4 +52,34 @@ public class LoginController {
             return map;
         }
     }
+    
+    @RequestMapping(value="/autenticacao/add-login.action", method=RequestMethod.POST)
+    public @ResponseBody Map<String, ? extends Object> addLogin(
+        @RequestParam("cpf") String cpf,
+        @RequestParam("senha") String senha,
+        @RequestParam("permissoes") String permissoes){
+        
+            Map<String, Object> map = new HashMap<>();
+            boolean existeCpf = loginService.findLogins(cpf).size() > 0;
+            if(existeCpf){
+                map.put("success", false);
+                map.put("message", "CPF já existente!");
+                return map;
+            }
+            Login login = new Login();
+            login.setCpf(cpf);
+            login.validarNovaSenha(senha);
+            login.setPermissoes(permissoes);
+            loginService.save(login);
+            boolean salvouLogin = loginService.findLogins(cpf).size() > 0;
+            
+            if(salvouLogin) {
+                map.put("success", true);
+                map.put("message", "Login salvo com sucesso!");
+            } else {
+                map.put("sucesss", false);
+                map.put("message", "Algo deu errado, confira o DB e o Controller!");
+            }
+        return map;
+    }
 }

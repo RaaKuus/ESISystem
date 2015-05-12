@@ -72,6 +72,11 @@ public class Login {
         this.permissoes = permissoes;
     }
 
+    public void validarNovaSenha(String senha){
+        this.salt = this.hashResolver.gerarSalt();
+        this.senha = this.hashResolver.gerarMd5(senha, salt);
+    }
+    
     public boolean autenticar(String password){
         return this.senha.equals(this.hashResolver.gerarMd5(password, salt));
     }
