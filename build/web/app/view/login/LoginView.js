@@ -13,10 +13,14 @@ Ext.define('ESISystem.view.login.LoginView', {
     defaultListenerScope: true,
     referenceHolder: true,
     viewModel: 'default',
+    
     requires: [
       "ESISystem.ux.CpfField",
       "ESISystem.util.login.LoginSetup"
     ],
+    
+    defaultButton: 'username',
+    
     items: [
         {
             xtype: 'form',
@@ -57,25 +61,21 @@ Ext.define('ESISystem.view.login.LoginView', {
             
         }
     ],
-    defaultButton: 'username',
     
     onLoginClick: function(){
-        var me = this, 
-            data = me.getViewModel().getData(),
-            loginSetup = ESISystem.util.login.LoginSetup;
-        
-        Ext.Ajax.request({
-            method: 'POST',
-            url: loginSetup.url,
-            params: data,
-            success: loginSetup.success,
-            failure: loginSetup.failure
+        var me = this; 
+        var data = me.getViewModel().getData();
+        var loginSetup = Ext.widget("loginsetup", {
+            loginView: this
         });
+        loginSetup.sendRequest(data);
     },
+    
     onKeyPress: function(field, e){
         var me = this, form = me.lookupReference('loginForm');
-        if(form.isValid() && Ext.EventObject.ENTER === e.getKey())
+        if(form.isValid() && Ext.EventObject.ENTER === e.getKey()){
             me.onLoginClick();
+        }
     }
     
 });

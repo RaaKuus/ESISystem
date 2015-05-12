@@ -1,14 +1,14 @@
 Ext.application({
     name: 'ESISystem',
     requires: [
-        'ESISystem.util.Splashscreen',
-        'ESISystem.util.LoginSplashscreen'
+        'ESISystem.util.splashscreen.LoginSplashscreen'
     ],
+    splashscreen: null,
     launch: function () {
-        ESISystem.util.LoginSplashscreen.fadeOut(2000);
+        this.splashscreen.fadeOut();
     },
     init: function () {
-        ESISystem.util.LoginSplashscreen.init();  
+        this.splashscreen = Ext.widget('loginsplashscreen');
     }
 });
 
