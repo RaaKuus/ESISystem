@@ -8,10 +8,25 @@ var initWindow = function(){
 Ext.application({
     name: 'ESISystem',
     requires: [
-        "testes.Teste"
+        "ESISystem.util.ViewFactory",
+        "ESISystem.util.content.ViewInfo",
+        "ESISystem.util.content.ViewInfoRepository"
     ],
     launch: function(){
-        var teste = Ext.create("testes.Teste");
+        
+        
+        var viewInfo = Ext.widget("viewinfo", {
+            path: 'Cachorro',
+            initial: true,
+            type: true
+        });
+        
+        var viewInfoRepository = Ext.widget("viewinforepository");
+        viewInfoRepository.addViewInfo(viewInfo);
+        
+        console.log(viewInfoRepository);
+        console.log(viewInfo.getName());
+        console.log(viewInfo instanceof ESISystem.util.content.ViewInfo);
     },
     init: function(){
         

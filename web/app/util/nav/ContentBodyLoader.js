@@ -8,7 +8,6 @@ Ext.define("ESISystem.util.nav.ContentBodyLoader", {
        } else {
            var manager = ESISystem.util.nav.ContentBodyManager;
            var factory = ESISystem.util.nav.ContentBodyFactory;
-           console.log(manager);
            manager.setMainPanel(mainPanel);
            
            this.registers.forEach(function(obj){

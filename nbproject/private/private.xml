@@ -3,12 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/web/testes/_splashscreen.js</file>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/web/application.js</file>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/web/app/util/splashscreen/Splashscreen.js</file>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/web/app/util/splashscreen/ContentSplashscreen.js</file>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/web/app/util/login/LoginSetup.js</file>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/ESISystem/web/app/util/splashscreen/ComponentSplashscreen.js</file>
+            <file>file:/Users/RaaKuus/Documents/ESISystem/web/app/util/content/ViewInfoRepository.js</file>
+            <file>file:/Users/RaaKuus/Documents/ESISystem/web/app/util/content/ViewInfo.js</file>
         </group>
     </open-files>
 </project-private>
